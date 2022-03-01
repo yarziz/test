@@ -44,18 +44,18 @@ public class time
         }
     }
 
-    public static bool bissextile(time a)
+    public bool bissextile()
     {
-        if((a.année%4==0 && a.année%100!=0)||a.année%400==0){
+        if((this.année%4==0 && this.année%100!=0)||this.année%400==0){
             return true;
         }
         return false;
     }
 
 
-    public static void afficher(time a)
+    public void afficher()
     {
-        Console.WriteLine("année = "+a.année.ToString());
+        Console.WriteLine("année = "+this.année.ToString());
     }
 
     
@@ -77,20 +77,14 @@ public class obligation
         time date_3=new time(5,6,2000);
         time [] lista=new time[4]{date,date_1,date_2,date_3};
         bool b,b_1,b_2,b_3;
-        b=time.bissextile(date);
-        b_1=time.bissextile(date_1);
-        b_2=time.bissextile(date_2);
-        b_3=time.bissextile(date_3);
-        Console.WriteLine(b);
-        Console.WriteLine(b_1);
-        Console.WriteLine(b_2);
-        Console.WriteLine(b_3);
+        b=date.bissextile();
+        b_1=date_1.bissextile();
+        b_2=date_2.bissextile();
+        b_3=date_3.bissextile();
         b_1=(date==date_1);
         b_2=(date==date_3);
-        Console.WriteLine(b_1);
-        Console.WriteLine(b_2);
         foreach(time a in time.mois_pair(lista)){
-            time.afficher(a);
+            a.afficher();
         }
     }
 
